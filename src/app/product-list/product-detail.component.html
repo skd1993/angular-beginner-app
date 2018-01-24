@@ -1,0 +1,16 @@
+<div class="panel panel-primary" *ngIf='product'>
+  <div class="panel-heading">
+    <!--due to asynchronous http calls, the product list may be populated after the page displays, so that will not display the desired results-->
+    <!--In order to get away from this, we use '?' which only resolves when the product list is NOT null-->
+    <!--If it is null, it won't get displayed-->
+    <!--NOTE that it doen't work with ngModel-->
+    <!--SAFE NAVIGATION OPERATOR-->
+    <!--better to use *ngIf-->
+    {{ pageTitle + ': ' + product[0].productName }}
+  </div>
+  <div class="panel-footer">
+    <a class="btn btn-default" (click)="onBack()" style="width: 80px">
+      <i class="glyphicon glyphicon-chevron-left"></i>&nbsp;Back
+    </a>
+  </div>
+</div>
